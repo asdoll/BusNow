@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BusNow</string>
+    <string name="title_activity_basic">BasicActivity</string>
+    <string name="hello_world">Hello World</string>
+</resources>
