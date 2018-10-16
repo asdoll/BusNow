@@ -1,26 +1,26 @@
-package com.busnow.app;
+package com.busnow.entity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
+import static com.busnow.constants.EntityConstants.*;
 
 public class StopData {
     private String stopCode;
     private String JsonData;
     private List<BusHere> BusData = new ArrayList<>();
 
-    StopData (String stopCode) {
-        this.stopCode = stopCode;
-        generateBusDatas(getCurrentData());
+    public StopData (String JsonData) throws Exception {
+        this.JsonData = JsonData;
+        generateBusDatas(JsonData);
     }
-
-    private String getCurrentData() {
-        return null;
-    }
-
     private void generateBusDatas(String JsonData) {
         try {
             JSONObject obj = new JSONObject(JsonData);
@@ -35,5 +35,10 @@ public class StopData {
         }
     }
 
-
+    public String getStopCode() {
+        return stopCode;
+    }
+    public List<BusHere> getBusData() {
+        return BusData;
+    }
 }
